@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Automatiseren!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background: linear-gradient(
+                45deg,
+                #e6e6ff,
+                #ffe6e6,
+                #e6ffe6,
+                #fff5e6
+            );
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .flashcard {
+            background-color: white;
+            padding: 120px;
+            border-radius: 30px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            margin: 60px;
+            font-size: 144px;
+            text-align: center;
+        }
+        .input-area {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            font-size: 96px;
+        }
+        input {
+            width: 240px;
+            height: 240px;
+            font-size: 96px;
+            text-align: center;
+            border: 6px solid #ccc;
+            border-radius: 30px;
+            background-color: white;
+        }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        .equals {
+            font-size: 96px;
+            margin: 40px 0;
+            color: #555;
+        }
+        .correct {
+            animation: celebrate 0.5s ease-in-out;
+        }
+        @keyframes celebrate {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20% { transform: translateX(-20px); }
+            40% { transform: translateX(20px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcard" id="number">10</div>
+    <div class="equals">=</div>
+    <div class="input-area">
+        <input type="text" id="leftBox" readonly>
+        +
+        <input type="number" id="rightBox" autofocus>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
